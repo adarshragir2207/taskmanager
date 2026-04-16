@@ -1,0 +1,121 @@
+/* Background gradient animation */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #6a11cb, #2575fc, #ff6a00);
+  background-size: 600% 600%;
+  animation: gradientMove 10s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientMove {
+  0% {background-position: 0%}
+  50% {background-position: 100%}
+  100% {background-position: 0%}
+}
+
+/* Glassmorphism container */
+.container {
+  width: 420px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  color: white;
+  text-align: center;
+}
+
+/* Title */
+h1 {
+  margin-bottom: 20px;
+}
+
+/* Input area */
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+/* Button styling */
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #ff6a00;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #ff3d00;
+}
+
+/* Filters */
+.filters {
+  margin: 15px 0;
+}
+
+.filters button {
+  margin: 5px;
+  background: #2575fc;
+}
+
+/* Task list */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Task card */
+li {
+  background: rgba(255,255,255,0.2);
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Animation for new tasks */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Priority colors */
+.low { border-left: 5px solid #00e676; }
+.medium { border-left: 5px solid #ffd600; }
+.high { border-left: 5px solid #ff1744; }
